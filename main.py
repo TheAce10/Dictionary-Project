@@ -112,12 +112,8 @@ class MeaningPage(Frame):
                 word_data['antonyms']
                 word_antonyms = ", ".join(word_data['antonyms'])
             except:
-                word_antonyms= " "
-            try:
-                word_data['examples']
-                word_examples = "\n\n     ".join(word_data['examples'])
-            except:
-                word_examples= " "
+                word_antonyms= "  "
+            
             self.meaning.insert('end', word.title() + '\n')
             self.meaning.insert('end', '(' + part_of_speech.title() + ')\n\n')
             self.meaning.insert('end', 'Definition:\n')
@@ -130,9 +126,6 @@ class MeaningPage(Frame):
             if word_antonyms:
                 self.meaning.insert('end', 'Antonym(s):\n')
                 self.meaning.insert('end', word_antonyms + '\n\n')
-            if word_examples:
-                self.meaning.insert('end', 'Example(s):\n')
-                self.meaning.insert('end', '     '+word_examples)
             self.meaning.config(state="disabled")
 
             self.meaning.tag_add('word', '1.0', '1.end')
@@ -150,9 +143,9 @@ class MeaningPage(Frame):
             self.meaning = Text(self, font=("arial", 12), bd=1)
             self.meaning.insert('end', '\n'+word_data)
             self.meaning.tag_add('caution', '1.0', '3.end')
-            self.meaning.tag_config('caution', foreground='red', font='Verdana 12 bold')
+            self.meaning.tag_config('caution', foreground='red', font='Courier 12 bold')
             # self.meaning.tag_add('caution', '2.0', '2.end')
-            self.meaning.place(x=65, y=35, width=500, height=500 )
+            self.meaning.place(x=65, y=35, width=400, height=400 )
 
 
 if __name__ == '__main__':
